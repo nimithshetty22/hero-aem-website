@@ -1,70 +1,178 @@
 /*
  * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * This file is licensed to you under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
 
-:root {
-  /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: white;
-  --light-color: #eee;
-  --dark-color: #ccc;
-  --text-color: black;
-
+ :root {
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
-
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
-
-  /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
+    monospace;
+  --heading-font-size-xxl: 60px;
+  --heading-font-size-xl: 48px;
+  --heading-font-size-l: 36px;
+  --heading-font-size-m: 30px;
+  --heading-font-size-s: 24px;
+  --heading-font-size-xs: 22px;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+  --font-weight-900: 900;
+  --font-size8: 8px;
+  --font-size10: 10px;
+  --font-size12: 12px;
+  --font-size13: 13px;
+  --font-size14: 14px;
+  --font-size15: 15px;
+  --font-size16: 16px;
+  --font-size17: 17px;
+  --font-size18: 18px;
+  --font-size20: 20px;
+  --font-size21: 21px;
+  --font-size22: 22px;
+  --font-size24: 24px;
+  --font-size26: 26px;
+  --font-size28: 28px;
+  --font-size30: 30px;
+  --font-size32: 32px;
+  --font-size33: 33px;
+  --font-size34: 34px;
+  --font-size35: 35px;
+  --font-size36: 36px;
+  --font-size37: 37px;
+  --font-size38: 38px;
+  --font-size39: 39px;
+  --font-size40: 40px;
+  --font-size41: 41px;
+  --font-size42: 42px;
+  --font-size48: 48px;
+  --font-size49: 49px;
+  --font-size52: 52px;
+  --font-size56: 56px;
+  --font-size58: 58px;
+  --font-size60: 60px;
+  --font-size64: 64px;
+  --font-size67: 67px;
+  --font-size74: 74px;
+  --font-size80: 80px;
+  --font-size84: 84px;
+  --font-size90: 90px;
+  --font-size180: 180px;
+  --line-height-per-140: 140%;
+  --line-height-per-100: 100%;
+  --line-height-per-120: 120%;
+  --line-height-9: 9px;
+  --line-height-12: 12px;
+  --line-height-14: 14px;
+  --line-height-16: 16px;
+  --line-height-17: 17px;
+  --line-height-19: 19px;
+  --line-height-20: 20px;
+  --line-height-21: 21px;
+  --line-height-23: 23px;
+  --line-height-24: 24px;
+  --line-height-25: 25px;
+  --line-height-26: 26px;
+  --line-height-28: 28px;
+  --line-height-32: 32px;
+  --line-height-40: 40px;
+  --line-height-42: 42px;
+  --line-height-48: 48px;
+  --line-height-57: 57px;
+  --line-height-69: 69px;
+  --line-height-78: 78px;
+  --line-height-100: 100px;
+  --text-color-title-black: #000;
+  --text-color-title-red: #f00;
+  --text-color-black: #303030;
+  --text-color-red: #ee2326;
+  --text-color-danger-red: red;
+  --text-color-grey: #666;
+  --text-color-lightgrey: #757575;
+  --text-color-grey-blur: rgba(255 255 255 50%) !important;
+  --text-color-white: #fff !important;
+  --text-color-blue: #009fda;
+  --text-color-grey-white: rgba(255 255 255 50%);
+  --text-color-danger-red-2: #df0000;
+  --text-color-info: #0086da;
+  --text-color-grey-label: #a5a5a5;
+  --text-color-grey-label-1: #a0a0a0;
+  --text-color-type-blue: #3e38bc;
+  --text-color-type-red: #ff0100;
+  --text-color-type-gray-1: #9f9f9f;
+  --text-color-type-gray-2: #d3d3d3;
+  --text-color-type-gray-3: gray;
+  --bg-color-secondarygrey: #303030;
+  --bg-color-black: #000;
+  --bg-color-danger: #ee2326;
+  --bg-color-red: red;
+  --bg-color-white: #f5f5f7;
+  --bg-color-blue: #009fda;
+  --bg-mob-color-grey: #ddd;
+  --bg-red-gradient: linear-gradient(
+    95.69deg,
+    #ac0000 0,
+    #f00 26.35%,
+    #ff3b3b 50.83%,
+    #f00 72.71%,
+    #f00 100%
+  );
+  --bg-color-black-2: #0a0a0a;
+  --bg-color-light-skin: #fff1e4;
+  --bg-color-yellow: #fff797;
+  --bg-color-grey-2: #ededed;
+  --bg-color-grey-3: #e2e2e2;
+  --bg-color-btn-red: #f12b2b;
+  --bg-color-light-purple: #f4dff1;
+  --bg-color-light-blue: #efebff;
+  --bg-color-light-aqua: #e7f8ff;
+  --bg-color-light-gray: #e6e6e6;
+  --bg-color-gray-1: #f2f2f2;
+  --bg-color-active-light-green: #dff3eb;
+  --bg-color-type-blue: #eae9ff;
+  --bg-color-type-red: #ffe4e4;
+  --bg-template-gray-1: #f1f1f1;
+  --bg-color-stroke-gray-1: #9f9f9f;
+  --border-color-gray-1: #d6d6d6;
+  --border-color-gray-2: #f3f3f3;
+  --border-color-gray-3: #ccc;
+  --border-color-gray-4: #d9d9d9;
+  --border-color-gray-5: #e5e5e5;
 
   /* nav height */
   --nav-height: 64px;
+
+  /* Breakpoints */
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop-sm: 1024px;
+  --breakpoint-desktop-md: 1220px;
+  --breakpoint-desktop-lg: 1400px;
 }
 
 @font-face {
   font-family: roboto-fallback;
   size-adjust: 100.06%;
   ascent-override: 95%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
-  :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
-    --heading-font-size-m: 30px;
-    --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;
-  }
+  src: local("Arial");
 }
 
 body {
-  font-size: var(--body-font-size-m);
+  font-size: var(--font-size16);
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--text-color-title-black);
   background-color: var(--background-color);
   display: none;
 }
@@ -77,35 +185,62 @@ header {
   height: var(--nav-height);
 }
 
-h1, h2, h3,
-h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
   margin-top: 1em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+/* h1 {
+  font-size: var(--heading-font-size-xxl);
+}
 
-p, dl, ol, ul, pre, blockquote {
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+} */
+
+p,
+dl,
+ol,
+ul,
+pre,
+blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-code, pre {
+code,
+pre {
   font-family: var(--fixed-font-family);
-  font-size: var(--body-font-size-s);
+  font-size: var(--font-size16);
 }
 
 code {
-  padding: .125em;
+  padding: 0.125em;
 }
 
 pre {
@@ -113,26 +248,27 @@ pre {
 }
 
 main pre {
-  background-color: var(--light-color);
+  background-color: var(--bg-color-white);
   padding: 1em;
-  border-radius: .25em;
+  border-radius: 0.25em;
   overflow-x: auto;
   white-space: pre;
 }
 
 /* links */
 a:any-link {
-  color: var(--link-color);
+  color: var(--text-color-type-blue);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--link-hover-color);
+  color: var(--text-color-info);
 }
 
 /* buttons */
-a.button:any-link, button {
+a.button:any-link,
+button {
   font-family: var(--body-font-family);
   display: inline-block;
   box-sizing: border-box;
@@ -143,8 +279,8 @@ a.button:any-link, button {
   font-style: normal;
   font-weight: 600;
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
+  color: var(--text-color-white);
+  background-color: var(--text-color-type-blue);
   margin: 16px 0;
   white-space: nowrap;
   overflow: hidden;
@@ -152,20 +288,25 @@ a.button:any-link, button {
   border-radius: 30px;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
+a.button:hover,
+a.button:focus,
+button:hover,
+button:focus {
+  background-color: var(--text-color-info);
   cursor: pointer;
 }
 
-button:disabled, button:disabled:hover {
-  background-color: var(--light-color);
+button:disabled,
+button:disabled:hover {
+  background-color: var(--bg-color-white);
   cursor: unset;
 }
 
-a.button.secondary, button.secondary {
+a.button.secondary,
+button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
-  color: var(--text-color)
+  color: var(--text-color-title-black);
 }
 
 main img {
@@ -185,26 +326,8 @@ main img {
   width: 100%;
 }
 
-/* sections */
-main .section {
-  padding: 64px 16px;
-}
-
-@media (width >= 600px) {
-  main .section {
-    padding: 64px 32px;
-  }
-}
-
-@media (width >= 900px) {
-  .section > div {
-    max-width: 1200px;
-    margin: auto;
-  }
-}
-
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--bg-color-white);
 }
