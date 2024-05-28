@@ -1,17 +1,64 @@
 @font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 700;
+  font-family: tstar-regular;
+  src: url('../fonts/tstar/TSTAR-PRO-Regular.ttf') format('truetype'), url('../fonts/tstar/TSTAR-PRO-Regular.woff') format('woff'), url('../fonts/tstar/TSTAR-PRO-Regular.woff2') format('woff2'), url('../fonts/tstar/TSTAR-PRO-Regular.eot') format('eot');
   font-display: swap;
-  src: url('../fonts/roboto-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* T-star-Medium */
+@font-face {
+  font-family: tstar-medium;
+  src: url('../fonts/tstar/TSTAR-PRO-Medium.ttf') format('truetype'), url('../fonts/tstar/TSTAR-PRO-Medium.woff') format('woff'), url('../fonts/tstar/TSTAR-PRO-Medium.woff2') format('woff2'), url('../fonts/tstar/TSTAR-PRO-Medium.eot') format('eot');
+  font-display: swap;
+}
+
+/* T-star-Bold */
+@font-face {
+  font-family: tstar-bold;
+  src: url('../fonts/tstar/TSTAR-PRO-Bold.ttf') format('truetype'), url('../fonts/tstar/TSTAR-PRO-Bold.woff') format('woff'), url('../fonts/tstar/TSTAR-PRO-Bold.woff2') format('woff2'), url('../fonts/tstar/TSTAR-PRO-Bold.eot') format('eot');
+  font-display: swap;
+}
+
+/* T-star-Heavy */
+@font-face {
+  font-family: tstar-heavy;
+  src: url('../fonts/tstar/T-StarPro-Heavy.ttf') format('truetype'),
+    url('../fonts/tstar/T-StarPro-Heavy.woff') format('woff'),
+    url('../fonts/tstar/T-StarPro-Heavy.woff2') format('woff2');
+  font-display: swap;
 }
 
 @font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 400;
+  font-family: high-speed;
+  src: url('../fonts/high-speed/highspeed.ttf') format('truetype'), url('../fonts/high-speed/highspeed.woff') format('woff'), url('../fonts/high-speed/highspeed.woff2') format('woff2'), url('../fonts/high-speed/highspeed.otf') format('otf');
   font-display: swap;
-  src: url('../fonts/roboto-regular.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+@font-face {
+  font-family: transducer;
+  src: url("https://use.typekit.net/af/f1009d/00000000000000007735eccd/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/f1009d/00000000000000007735eccd/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/f1009d/00000000000000007735eccd/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-display: auto;
+}
+
+@font-face {
+  font-family: transducer-extended;
+  src: url("https://use.typekit.net/af/f5b1f5/00000000000000007735ecce/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/f5b1f5/00000000000000007735ecce/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/f5b1f5/00000000000000007735ecce/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-display: auto;
+}
+
+@font-face {
+  font-family: transducer-condensed;
+  src: url("https://use.typekit.net/af/373239/00000000000000007735ecd5/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/373239/00000000000000007735ecd5/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/373239/00000000000000007735ecd5/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-display: auto;
+}
+
+:root {
+  --font-tstar-regular: 'tstar-regular';
+  --font-tstar-medium: 'tstar-medium';
+  --font-tstar-bold: 'tstar-bold';
+  --font-tstar-heavy: 'tstar-heavy';
+  --font-high-speed: 'high-speed';
+  --font-transducer: "transducer";
+  --font-transducer-ext: "transducer-extended";
+  --font-transducer-con: "transducer-condensed";
 }
