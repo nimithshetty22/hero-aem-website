@@ -1,12 +1,9 @@
 footer {
-  padding: 2rem;
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-s);
-}
-
-footer .footer {
-  max-width: 1200px;
-  margin: auto;
+  background-color: var(--bg-color-black);
+  padding: 71px 15px 0;
+  @media (width >= 768px) {
+      padding: 66px 70px 0;
+  }
 }
 
 footer .footer p {
