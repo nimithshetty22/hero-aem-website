@@ -1,0 +1,63 @@
+version: 1
+indices:
+  default:
+    include:
+      - '/en/**'
+      - '/au/**'
+    exclude:
+      - '/drafts/**'
+      - '/en/insights/drafts/**'
+      - '/tools/sidekick/**'
+      - '/fragments/**'
+      - '/library/**'
+      - '/en/insights/library/**'
+    target: /query-index.json
+    properties:
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+      lastModified2:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")        
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      readtime:
+        select: head > meta[name="readtime"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      template:
+        select: head > meta[name="template"]
+        value: attribute(el, "content")
+      topics:
+        select: head > meta[name="topics"]
+        value: attribute(el, "content")
+      date:
+        select: head > meta[name="publication-date"]
+        value: parseTimestamp(attribute(el, "content"), "YYYY-MM-DD")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      eyebrowInsights:
+        select: main > div:first-child > h2:first-of-type
+        value: textContent(el)
+      eyebrowVideos:
+        select: main > div:first-child > h1:first-of-type
+        value: textContent(el)
+      eyebrowWhitepapers:
+        select: main > div:first-child > h6:first-of-type
+        value: textContent(el)
+      hideininternalsearch:
+        select: head > meta[name="hideininternalsearch"]
+        value: attribute(el, "content")
