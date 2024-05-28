@@ -1,0 +1,64 @@
+version: 1
+indices:
+  default:
+    include:
+      - '/en/**'
+      - '/au/**'
+    exclude:
+      - '/drafts/**'
+      - '/en/insights/drafts/**'
+      - '/tools/sidekick/**'
+      - '/fragments/**'
+      - '/library/**'
+      - '/en/insights/library/**'
+    target: /query-index.json
+    properties:
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+      lastModified2:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")        
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
+      tags:
+        select: head > meta[property="article:tag"]
+        values: attribute(el, "content")
+      keywords:
+        select: head > meta[name="keywords"]
+        value: attribute(el, "content")
+      template:
+        select: head > meta[name="template"]
+        value: attribute(el, "content")
+      date:
+        select: head > meta[name="publication-date"]
+        value: parseTimestamp(attribute(el, "content"), "YYYY-MM-DD")
+      robots:
+        select: head > meta[name="robots"]
+        value: attribute(el, "content")
+      model-image:
+        select: head > meta[name="model-image"]
+        value: attribute(el, "content")
+      model-name:
+        select: head > meta[name="model-name"]
+        value: attribute(el, "content")
+      model-displacement:
+        select: head > meta[name="model-displacement"]
+        value: attribute(el, "content")
+      model-tag:
+        select: head > meta[name="model-tag"]
+        value: attribute(el, "content")
+      model-link:
+        select: head > meta[name="model-link"]
+        value: attribute(el, "content")
+      model-category:
+        select: head > meta[name="model-category"]
+        value: attribute(el, "content")
+
