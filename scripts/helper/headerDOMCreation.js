@@ -7,6 +7,7 @@ const getData = async (url) => {
     try {
       const response = await fetch(url, {
         method: 'GET',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
