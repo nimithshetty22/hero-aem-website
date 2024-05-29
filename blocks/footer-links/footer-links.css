@@ -37,7 +37,7 @@
     padding: 55px 0 48px;
     align-items: center;
     border-bottom: 1px solid;
-    border-image: linear-gradient(270deg, rgba(150, 150, 150, 0) 0%, var(--border-color-gray-7) 51.56%, rgba(150, 150, 150, 0) 100%) 1;
+    border-image: linear-gradient(270deg, rgba(150 150 150 / 0%) 0%, var(--border-color-gray-7) 51.56%, rgba(150 150 150 / 0%) 100%) 1;
 
     @media (width <= 767px) {
         border-bottom: 1px solid var(--border-color-gray-6);
