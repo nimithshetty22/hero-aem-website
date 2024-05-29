@@ -1,6 +1,7 @@
 export function createHeaderDOM() {
   let endpoint =
-    "https://header-changes--hero-aem-website--nimithshetty22.hlx.live/query-index.json";
+    "https://main--hero-aem-website--nimithshetty22.hlx.live/query-index.json";
+    const apiData = getData(endpoint); 
   //const DOM = getData(endpoint).then(response => { console.log(response.data) }).catch(error => console.log('Error:', error));
   const newHeaderMotorcyclev1 = `
       <div class="sidebar">
