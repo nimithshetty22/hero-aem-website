@@ -4,6 +4,7 @@ indices:
     include:
       - '/en/**'
       - '/au/**'
+      - '/Bikes/**'
     exclude:
       - '/drafts/**'
       - '/en/insights/drafts/**'
