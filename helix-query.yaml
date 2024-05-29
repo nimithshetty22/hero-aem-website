@@ -23,9 +23,6 @@ indices:
       title:
         select: head > meta[property="og:title"]
         value: attribute(el, "content")
-      readtime:
-        select: head > meta[name="readtime"]
-        value: attribute(el, "content")
       description:
         select: head > meta[name="description"]
         value: attribute(el, "content")
@@ -41,24 +38,27 @@ indices:
       template:
         select: head > meta[name="template"]
         value: attribute(el, "content")
-      topics:
-        select: head > meta[name="topics"]
-        value: attribute(el, "content")
       date:
         select: head > meta[name="publication-date"]
         value: parseTimestamp(attribute(el, "content"), "YYYY-MM-DD")
       robots:
         select: head > meta[name="robots"]
         value: attribute(el, "content")
-      eyebrowInsights:
-        select: main > div:first-child > h2:first-of-type
-        value: textContent(el)
-      eyebrowVideos:
-        select: main > div:first-child > h1:first-of-type
-        value: textContent(el)
-      eyebrowWhitepapers:
-        select: main > div:first-child > h6:first-of-type
-        value: textContent(el)
-      hideininternalsearch:
-        select: head > meta[name="hideininternalsearch"]
+      model-image:
+        select: head > meta[name="model-image"]
+        value: attribute(el, "content")
+      model-name:
+        select: head > meta[name="model-name"]
+        value: attribute(el, "content")
+      model-displacement:
+        select: head > meta[name="model-displacement"]
+        value: attribute(el, "content")
+      model-tag:
+        select: head > meta[name="model-tag"]
+        value: attribute(el, "content")
+      model-link:
+        select: head > meta[name="model-link"]
+        value: attribute(el, "content")
+      model-category:
+        select: head > meta[name="model-category"]
         value: attribute(el, "content")
