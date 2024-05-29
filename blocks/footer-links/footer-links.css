@@ -14,32 +14,48 @@
 
 .footer-links > div:first-of-type {
     margin-bottom: 40px;
+    
+    @media (width <= 767px) {
+        display: none;
+    }
+
+    picture {
+        display: flex;
+    }
 }
 
 .footer-links > div:nth-of-type(2) {
+    gap: 20px;
+
     @media (width <= 767px) {
         align-items: unset;
+        display: none;
     }
 }
 
 .footer-links > div:nth-of-type(3) {
     padding: 55px 0 48px;
     align-items: center;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(270deg, rgba(150, 150, 150, 0) 0%, var(--border-color-gray-7) 51.56%, rgba(150, 150, 150, 0) 100%) 1;
 
     @media (width <= 767px) {
-        padding: 30px 0 26px;
-        gap: 34px;
+        border-bottom: 1px solid var(--border-color-gray-6);
+        border-image: unset;
+        flex-direction: column-reverse;
+        padding: 0 0 32px;
+        margin: 0 16px;
+        gap: 32px;
     }
 }
 
 .footer-links > div:last-of-type {
-    border-top: 1px solid white;
-    padding: 34px 0 26px;
+    padding-top: 48px;
     gap: 16px;
     
     @media (width <= 767px) {
-        padding: 30px 0 70px;
-        gap: 24px;
+        padding-top: 32px;
+        gap: 32px;
     }
 }
 
@@ -54,10 +70,8 @@
 }
 
 .footer-links > div:nth-of-type(2) > div {
-    @media (width >= 768px) {
-        max-width: 16.67%;
-    }
-
+    width: 100%;
+    
     p:first-of-type {
         font-family: var(--font-transducer);
         font-size: var(--font-size16);
@@ -73,32 +87,61 @@
     }
 
     p:not(:first-of-type) {
-        font-family: var(--font-tstar-medium);
+        font-family: var(--font-tstar-regular);
         font-size: var(--font-size16);
         font-weight: var(--font-weight-400);
         line-height: var(--line-height-per-140);
         color: var(--border-color-gray-2);
         padding-bottom: 8px;
+    }
 
-        @media (width <= 767px) {
-            display: none;
-        }
+    p:last-of-type {
+        padding-bottom: unset;
     }
 }
 
 .footer-links > div:nth-of-type(3) > div:first-of-type > p {
+    gap: 32px;
+    
+    @media (width <= 767px) {
+        gap: 24px;
+    }
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.footer-links > div:nth-of-type(3) > div:last-of-type > p {
     gap: 16px;
 
     @media (width <= 767px) {
         gap: 20px;
     }
-}
 
-.footer-links > div:nth-of-type(3) > div:last-of-type > p {
-    gap: 30px;
-    
-    @media (width <= 767px) {
-        gap: 38px;
+    a:nth-of-type(1),
+    a:nth-of-type(2) {
+        @media (width <= 767px) {
+            display: none;
+        }
+    }
+
+    a:nth-of-type(3),
+    a:nth-of-type(4) {
+        @media (width >= 768px) {
+            display: none;
+        }
+    }
+
+    img {
+        width: 88px;
+        height: 36px;
+        
+        @media (width <= 767px) {
+            width: 146px;
+            height: 48px;
+        }
     }
 }
 
@@ -106,16 +149,15 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    font-family: var(--font-tstar-bold);
-    font-size: var(--font-size18);
-    font-weight: var(--font-weight-400);
-    line-height: var(--line-height-24);
-    color: var(--text-color-white);
-    
+    font-family: var(--font-tstar-regular);
+    font-size: var(--font-size14);
+    font-weight: var(--font-weight-300);
+    line-height: var(--line-height-per-140);
+    color: var(--border-color-gray-2);
+
     @media (width <= 767px) {
         justify-content: center;
-        font-size: var(--font-size16);
-        line-height: var(--line-height-20);
+        font-size: var(--font-size12);
     }
 }
 
@@ -127,11 +169,25 @@
 
     p::after {
         content: "";
-        height: 12px;
+        height: 24px;
         width: 1px;
-        background-color: var(--text-color-white);
-        margin: 0 8px;
+        background-color: var(--text-color-type-gray-4);
+        margin: 0 20px;
         display: block;
+    }
+    
+    @media (width <= 767px) {
+        row-gap: 16px;
+
+        p::after {
+            height: 16.8px;
+            width: 1px;
+            margin: 0 12px;
+        }
+
+        p:nth-of-type(3)::after {
+            display: none;
+        }
     }
 
     p:last-of-type::after {
