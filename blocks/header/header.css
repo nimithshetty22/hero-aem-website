@@ -15,7 +15,7 @@ header nav {
   align-items: center;
   gap: 0 2em;
   margin: auto;
-  max-width: 1264px;
+  max-width: 1440px;
   height: var(--nav-height);
   padding: 0 1rem;
   font-family: var(--body-font-family);
@@ -32,7 +32,7 @@ header nav[aria-expanded="true"] {
 
 @media (width >= 600px) {
   header nav {
-    padding: 0 2rem;
+    padding: 0 2.5rem;
   }
 }
 
@@ -198,13 +198,11 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   header nav .nav-sections .nav-drop {
-    position: relative;
     padding-right: 16px;
     cursor: pointer;
   }
 
   header nav .nav-sections .nav-drop::after {
-    content: '';
     display: inline-block;
     position: absolute;
     top: .5em;
@@ -227,33 +225,31 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     gap: 2em;
     margin: 0;
-    font-size: var(--body-font-size-xs);
+    font-size: var(--font-size14);
+    margin-right: 15px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
-    position: relative;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
     display: none;
-    position: relative;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
     display: block;
     position: absolute;
     left: -1em;
-    width: 200px;
+    width: 100vw;
     margin-top: 12px;
     padding: 1em;
-    background-color: var(--light-color);
+    background-color: white;
     white-space: initial;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
     position: absolute;
     top: -8px;
     left: 8px;
@@ -269,7 +265,96 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
+header nav .nav-sections .default-content-wrapper{
+  display: flex;
+}
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+
+/* custom css for motorcycle tab */
+.nav-sections .sidebar {
+  width: 300px;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
+.nav-sections .sidebar h2, .nav-sections .sidebar h3 {
+  margin: 0 0 10px;
+}
+.nav-sections .sidebar h2 {
+  margin-bottom: 20px;
+}
+.nav-sections .sidebar div {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.nav-sections .sidebar div:hover {
+  text-decoration: underline;
+}
+.nav-sections .main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.nav-sections .bike-list {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+.nav-sections .bike-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.nav-sections .bike-item img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+.nav-sections .bike-item .bike-info {
+  flex: 1;
+}
+.nav-sections .bike-item .bike-info h4 {
+  margin: 0 0 5px;
+}
+.nav-sections .bike-item .bike-info p {
+  margin: 0;
+  color: #888;
+}
+.nav-sections .details {
+  width: 400px;
+  padding: 20px;
+  background: #f9f9f9;
+  overflow-y: auto;
+}
+.nav-sections .details img {
+  max-width: 100%;
+  height: auto;
+}
+.nav-sections .details h3 {
+  margin-top: 0;
+}
+.nav-sections .details .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.nav-sections .details .actions button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.nav-sections .details .actions button:hover {
+  background: darkred;
 }
