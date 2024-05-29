@@ -1,6 +1,11 @@
+import ffetch from "../ffetch";
+
 export function createHeaderDOM() {
-  let endpoint =
-    "https://main--hero-aem-website--nimithshetty22.hlx.live/query-index.json";
+  let endpoint ="https://main--hero-aem-website--nimithshetty22.hlx.live/query-index.json";
+    const apiData = await ffetch(endpoint);
+    const apiData2 = await ffetch('/query-index.json');
+    console.log(apiData)
+    console.log(apiData2)
     //const apiData = getData(endpoint).then((apiData) => {console.log(apiData)}) 
   //const DOM = getData(endpoint).then(response => { console.log(response.data) }).catch(error => console.log('Error:', error));
   const newHeaderMotorcyclev1 = `
