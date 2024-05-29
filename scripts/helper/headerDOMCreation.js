@@ -28,6 +28,8 @@ export function createHeaderDOM() {
       const newUl = document.createElement("ul");
       const newLi = document.createElement("li");
       newLi.innerHTML = newHeaderMotorcyclev1;
+      newUl.addEventListener("click", (event) => {
+        event.stopPropagation()})
       newUl.appendChild(newLi);
       navDrop.appendChild(newUl);
 
@@ -198,14 +200,6 @@ export function createHeaderDOM() {
       displayBikeList(100, 110);
     }
   });
-  // Add event listeners to stop propagation on child elements within newHeaderMotorcyclev1
-  const sidebar = newLi.querySelector(".sidebar");
-  const mainContent = newLi.querySelector(".main-content");
-  const details = newLi.querySelector(".details");
-
-  [sidebar, mainContent, details].forEach((element) => {
-    element.addEventListener("click", stopPropagation);
-  });
 }
 
 const getData = async (url) => {
@@ -229,7 +223,3 @@ const getData = async (url) => {
     throw error;
   }
 };
-
-function stopPropagation(event) {
-  event.stopPropagation();
-}
