@@ -348,7 +348,10 @@ header nav .nav-tools {
   flex: 1;
 }
 .nav-sections .bike-item .bike-info h4 {
-  margin: 0 0 5px;
+  margin: 0 0 15px;
+  font-family: var(--font-transducer);
+  font-size: 24px;
+  line-height: 24px;
 }
 
 .nav-sections .bike-item .bike-info p {
