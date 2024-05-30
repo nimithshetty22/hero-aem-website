@@ -159,6 +159,9 @@ header nav .nav-sections {
   display: none;
   visibility: hidden;
   background-color: var(--overlay-color);
+  font-family: var(--font-transducer);
+  line-height: 16px;
+  font-size: 16px;
 }
 
 header nav[aria-expanded="true"] .nav-sections {
