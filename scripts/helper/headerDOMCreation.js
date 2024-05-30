@@ -1,5 +1,5 @@
 export function createHeaderDOM() {
-  let bikeDetailsEndpoint =`${window.locationt.origin}/query-index.json`;
+  let bikeDetailsEndpoint =`${window.location.origin}/query-index.json`;
 
   // Initialize the DOM elements
   const newHeaderMotorcyclev1 = `
