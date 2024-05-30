@@ -4,6 +4,7 @@ indices:
     include:
       - '/en/**'
       - '/au/**'
+      - '/Bikes/**'
     exclude:
       - '/drafts/**'
       - '/en/insights/drafts/**'
@@ -61,4 +62,3 @@ indices:
       model-category:
         select: head > meta[name="model-category"]
         value: attribute(el, "content")
-
