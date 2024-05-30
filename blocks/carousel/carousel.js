@@ -42,7 +42,7 @@ function showSlide(block, slideIndex = 0) {
   });
 }
 
-var autoSlideInterval = null;
+let autoSlideInterval = null;
 function startAutoSlide(block) {
   autoSlideInterval = setInterval(() => {
     showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
@@ -50,7 +50,7 @@ function startAutoSlide(block) {
 }
 
 function resetAutoSlide(block) {
-  if(autoSlideInterval) {
+  if (autoSlideInterval) {
     clearInterval(autoSlideInterval);
     startAutoSlide(block);
   }
@@ -168,7 +168,10 @@ export default async function decorate(block) {
 
   container.append(slidesWrapper);
   block.prepend(container);
-  block.classList.contains('auto-slide') && startAutoSlide(block);
+  
+  if (block.classList.contains('auto-slide')) {
+    startAutoSlide(block);
+  }
 
   if (!isSingleSlide) {
     bindEvents(block);
