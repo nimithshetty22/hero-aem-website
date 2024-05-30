@@ -290,6 +290,10 @@ header nav .nav-tools {
   height: 33.438rem;
   display: flex;
   flex-direction: column;
+  font-family: var(--font-tstar-regular);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
 }
 
 .nav-sections .sidebar h2 {
@@ -300,7 +304,6 @@ header nav .nav-tools {
   margin-bottom: 10px;
   cursor: pointer;
   padding: 10px 0;
-  border-bottom: 1px solid #444;
 }
 
 .nav-sections .sidebar .cc-range:hover {
@@ -321,16 +324,14 @@ header nav .nav-tools {
 
 .nav-sections .bike-list {
   flex: 1;
-  padding: 20px;
   overflow-y: auto;
 }
 
 .nav-sections .bike-item {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
+  padding: 25px;
   cursor: pointer;
 }
 
