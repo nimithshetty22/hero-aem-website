@@ -33,99 +33,99 @@ export function createHeaderDOM() {
       newUl.appendChild(newLi);
       navDrop.appendChild(newUl);
 
-      // Fetch data from the API
-      const bikeDetails = await getData(bikeDetailsEndpoint);
+      // Fetch data from the API and construct dom
+      getData(endpoint).then((bikeDetails) => {
+        const bikeList = document.getElementById("bike-list");
+        const bikeDetailsElement = document.getElementById("bike-details");
 
-      const bikeList = document.getElementById("bike-list");
-      const bikeDetailsElement = document.getElementById("bike-details");
-
-      function displayBikeList(minCC, maxCC, newLaunch) {
-        bikeList.innerHTML = "";
-        bikeDetails.data.forEach((item) => {
-          const displacement = parseInt(item["model-displacement"]);
-          const isNewLaunch = item["model-new-launch"] === "yes";
-          if (newLaunch === true) {
-            if (isNewLaunch) {
+        function displayBikeList(minCC, maxCC, newLaunch) {
+          bikeList.innerHTML = "";
+          bikeDetails.data.forEach((item) => {
+            const displacement = parseInt(item["model-displacement"]);
+            const isNewLaunch = item["model-new-launch"] === "yes";
+            if (newLaunch === true) {
+              if (isNewLaunch) {
+                createBikeItem(item);
+              }
+            } else if (
+              item.path.includes("/bikes/") &&
+              displacement >= minCC &&
+              displacement <= maxCC
+            ) {
               createBikeItem(item);
             }
-          } else if (
-            item.path.includes("/bikes/") &&
-            displacement >= minCC &&
-            displacement <= maxCC
-          ) {
-            createBikeItem(item);
-          }
+          });
+        }
+
+        function createBikeItem(item) {
+          const bikeItem = document.createElement("div");
+          bikeItem.className = "bike-item";
+          bikeItem.addEventListener("click", () => displayBikeDetails(item));
+
+          const bikeImage = document.createElement("img");
+          bikeImage.src = item["model-image"]
+            ? item["model-image"]
+            : item["image"];
+          bikeImage.alt = item["model-name"];
+
+          const bikeInfo = document.createElement("div");
+          bikeInfo.className = "bike-info";
+
+          const bikeName = document.createElement("h4");
+          bikeName.textContent = item["model-name"];
+
+          const bikeDisplacement = document.createElement("p");
+          bikeDisplacement.textContent = `${item["model-displacement"]} cc engine`;
+
+          bikeInfo.appendChild(bikeName);
+          bikeInfo.appendChild(bikeDisplacement);
+          bikeItem.appendChild(bikeImage);
+          bikeItem.appendChild(bikeInfo);
+          bikeList.appendChild(bikeItem);
+        }
+
+        function displayBikeDetails(bike) {
+          bikeDetailsElement.innerHTML = `
+            <img src="${
+              bike["model-image"] ? bike["model-image"] : bike["image"]
+            }" alt="${bike["model-name"]}">
+            <h3>${bike["model-name"]} ${bike["model-displacement"]} cc</h3>
+            <p>${bike.description}</p>
+            <div class="actions">
+              <button class="explore-btn" onclick="exploreBike('${
+                bike["model-link"]
+              }')">Explore</button>
+              <button class="buy-btn" onclick="buyBike('${
+                bike["model-link"]
+              }')">Buy Now</button>
+              <label><input type="checkbox"> Add to Compare</label>
+            </div>
+          `;
+        }
+
+        function exploreBike(link) {
+          window.open(link, "_blank");
+        }
+
+        function buyBike(link) {
+          window.open(link, "_blank");
+        }
+
+        document.querySelectorAll(".cc-range").forEach((element) => {
+          element.addEventListener("click", () => {
+            if (element.classList.contains("new-launch")) {
+              displayBikeList(null, null, true);
+            } else {
+              const minCC = parseInt(element.getAttribute("data-min"));
+              const maxCC = parseInt(element.getAttribute("data-max"));
+              displayBikeList(minCC, maxCC, false);
+            }
+          });
         });
-      }
 
-      function createBikeItem(item) {
-        const bikeItem = document.createElement("div");
-        bikeItem.className = "bike-item";
-        bikeItem.addEventListener("click", () => displayBikeDetails(item));
-
-        const bikeImage = document.createElement("img");
-        bikeImage.src = item["model-image"]
-          ? item["model-image"]
-          : item["image"];
-        bikeImage.alt = item["model-name"];
-
-        const bikeInfo = document.createElement("div");
-        bikeInfo.className = "bike-info";
-
-        const bikeName = document.createElement("h4");
-        bikeName.textContent = item["model-name"];
-
-        const bikeDisplacement = document.createElement("p");
-        bikeDisplacement.textContent = `${item["model-displacement"]} cc engine`;
-
-        bikeInfo.appendChild(bikeName);
-        bikeInfo.appendChild(bikeDisplacement);
-        bikeItem.appendChild(bikeImage);
-        bikeItem.appendChild(bikeInfo);
-        bikeList.appendChild(bikeItem);
-      }
-
-      function displayBikeDetails(bike) {
-        bikeDetailsElement.innerHTML = `
-          <img src="${
-            bike["model-image"] ? bike["model-image"] : bike["image"]
-          }" alt="${bike["model-name"]}">
-          <h3>${bike["model-name"]} ${bike["model-displacement"]} cc</h3>
-          <p>${bike.description}</p>
-          <div class="actions">
-            <button class="explore-btn" onclick="exploreBike('${
-              bike["model-link"]
-            }')">Explore</button>
-            <button class="buy-btn" onclick="buyBike('${
-              bike["model-link"]
-            }')">Buy Now</button>
-            <label><input type="checkbox"> Add to Compare</label>
-          </div>
-        `;
-      }
-
-      function exploreBike(link) {
-        window.open(link, "_blank");
-      }
-
-      function buyBike(link) {
-        window.open(link, "_blank");
-      }
-
-      document.querySelectorAll(".cc-range").forEach((element) => {
-        element.addEventListener("click", () => {
-          if (element.classList.contains("new-launch")) {
-            displayBikeList(null, null, true);
-          } else {
-            const minCC = parseInt(element.getAttribute("data-min"));
-            const maxCC = parseInt(element.getAttribute("data-max"));
-            displayBikeList(minCC, maxCC, false);
-          }
-        });
-      });
-
-      // Initial display of bikes
-      displayBikeList(null, null, true);
+        // Initial display of bikes
+        displayBikeList(null, null, true);
+      }).catch(error => console.error('Error fetching bike details:', error));
     }
   });
 }
