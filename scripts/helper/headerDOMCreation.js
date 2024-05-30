@@ -34,7 +34,7 @@ export function createHeaderDOM() {
       navDrop.appendChild(newUl);
 
       // Fetch data from the API and construct dom
-      getData(endpoint).then((bikeDetails) => {
+      getData(bikeDetailsEndpoint).then((bikeDetails) => {
         const bikeList = document.getElementById("bike-list");
         const bikeDetailsElement = document.getElementById("bike-details");
 
