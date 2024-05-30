@@ -1,8 +1,5 @@
-import ffetch from "../ffetch";
-
 export function createHeaderDOM() {
-  let endpoint =
-    "https://main--hero-aem-website--nimithshetty22.hlx.live/query-index.json";
+  let bikeDetailsEndpoint =`${window.locationt.origin}/query-index.json`;
 
   // Initialize the DOM elements
   const newHeaderMotorcyclev1 = `
@@ -37,7 +34,7 @@ export function createHeaderDOM() {
       navDrop.appendChild(newUl);
 
       // Fetch data from the API
-      const bikeDetails = await getData(endpoint);
+      const bikeDetails = await getData(bikeDetailsEndpoint);
 
       const bikeList = document.getElementById("bike-list");
       const bikeDetailsElement = document.getElementById("bike-details");
