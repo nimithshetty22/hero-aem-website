@@ -1,6 +1,6 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: white;
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -10,8 +10,8 @@ header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+    "hamburger brand tools" var(--nav-height)
+    "sections sections sections" 1fr / auto 1fr auto;
   align-items: center;
   gap: 0 2em;
   margin: auto;
@@ -23,9 +23,9 @@ header nav {
 
 header nav[aria-expanded="true"] {
   grid-template:
-    'hamburger brand' var(--nav-height)
-    'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
+    "hamburger brand" var(--nav-height)
+    "sections sections" 1fr
+    "tools tools" var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100vh;
 }
@@ -89,7 +89,7 @@ header nav .nav-hamburger-icon::after {
 
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
-  content: '';
+  content: "";
   position: absolute;
   background: currentcolor;
 }
@@ -167,7 +167,7 @@ header nav[aria-expanded="true"] .nav-sections {
   align-self: start;
 }
 
-header nav .nav-sections ul  {
+header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
   font-size: var(--body-font-size-s);
@@ -205,7 +205,7 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .nav-drop::after {
     display: inline-block;
     position: absolute;
-    top: .5em;
+    top: 0.5em;
     right: 2px;
     transform: rotate(135deg);
     width: 6px;
@@ -217,7 +217,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .nav-drop[aria-expanded="true"]::after {
     top: unset;
-    bottom: .5em;
+    bottom: 0.5em;
     transform: rotate(315deg);
   }
 
@@ -238,7 +238,13 @@ header nav .nav-sections ul > li > ul > li {
     display: none;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded="true"] > ul {
+  header
+    nav
+    .nav-sections
+    .default-content-wrapper
+    > ul
+    > li[aria-expanded="true"]
+    > ul {
     display: block;
     position: absolute;
     left: -1em;
@@ -266,7 +272,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
-header nav .nav-sections .default-content-wrapper{
+header nav .nav-sections .default-content-wrapper {
   display: flex;
 }
 /* tools */
@@ -274,39 +280,51 @@ header nav .nav-tools {
   grid-area: tools;
 }
 
-
 /* custom css for motorcycle tab */
 .nav-sections .sidebar {
-  width: 300px;
+  width: 27.1rem;
   background: #000;
   color: #fff;
   padding: 20px;
   overflow-y: auto;
+  height: 33.438rem;
+  display: flex;
+  flex-direction: column;
 }
-.nav-sections .sidebar h2, .nav-sections .sidebar h3 {
-  margin: 0 0 10px;
-}
+
 .nav-sections .sidebar h2 {
   margin-bottom: 20px;
 }
-.nav-sections .sidebar div {
+
+.nav-sections .sidebar .cc-range {
   margin-bottom: 10px;
   cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
 }
-.nav-sections .sidebar div:hover {
+
+.nav-sections .sidebar .cc-range:hover {
   text-decoration: underline;
 }
+
+.nav-sections .sidebar .cc-range:last-child {
+  border-bottom: none;
+}
+
 .nav-sections .main-content {
   flex: 1;
+  max-width: 330px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
+
 .nav-sections .bike-list {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
 }
+
 .nav-sections .bike-item {
   display: flex;
   align-items: center;
@@ -315,34 +333,41 @@ header nav .nav-tools {
   padding-bottom: 10px;
   cursor: pointer;
 }
+
 .nav-sections .bike-item img {
   width: 100px;
   height: auto;
   margin-right: 20px;
 }
+
 .nav-sections .bike-item .bike-info {
   flex: 1;
 }
 .nav-sections .bike-item .bike-info h4 {
   margin: 0 0 5px;
 }
+
 .nav-sections .bike-item .bike-info p {
   margin: 0;
   color: #888;
 }
+
 .nav-sections .details {
-  width: 400px;
+  flex: 1;
   padding: 20px;
   background: #f9f9f9;
   overflow-y: auto;
 }
+
 .nav-sections .details img {
   max-width: 100%;
   height: auto;
 }
+
 .nav-sections .details h3 {
   margin-top: 0;
 }
+
 .nav-sections .details .actions {
   display: flex;
   justify-content: space-between;
