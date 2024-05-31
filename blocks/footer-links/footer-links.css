@@ -87,7 +87,7 @@
     }
 
     p:not(:first-of-type) {
-        font-family: var(--font-tstar-regular);
+        font-family: var(--font-tstar-medium);
         font-size: var(--font-size16);
         font-weight: var(--font-weight-400);
         line-height: var(--line-height-per-140);
