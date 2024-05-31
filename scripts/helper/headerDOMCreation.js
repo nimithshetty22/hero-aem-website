@@ -49,7 +49,7 @@ export function createHeaderDOM() {
                   createBikeItem(item);
                 }
               } else if (
-                item.path.includes("/bikes/") &&
+                (item.path.includes("/bikes/") || item.path.includes("/Bikes/")) &&
                 displacement >= minCC &&
                 displacement <= maxCC
               ) {
