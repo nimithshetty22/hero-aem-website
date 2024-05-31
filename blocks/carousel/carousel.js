@@ -34,23 +34,23 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
+  activeSlide?.querySelectorAll('a')?.forEach((link) => link?.removeAttribute('tabindex'));
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
-    left: activeSlide.offsetLeft,
+    left: activeSlide?.offsetLeft,
     behavior: 'smooth',
   });
 }
 
-let autoSlideInterval = null;
+var autoSlideInterval;
 function startAutoSlide(block) {
   autoSlideInterval = setInterval(() => {
     showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
-  }, 4350);
+  }, 4500);
 }
 
 function resetAutoSlide(block) {
-  if (autoSlideInterval) {
+  if(autoSlideInterval && block.classList.contains('auto-slide')) {
     clearInterval(autoSlideInterval);
     startAutoSlide(block);
   }
@@ -129,25 +129,26 @@ export default async function decorate(block) {
     const slideIndicatorsNav = document.createElement('nav');
     slideIndicatorsNav.classList.add('slide-indicators-wrapper');
     slideIndicatorsNav.setAttribute('aria-label', placeholders.carouselSlideControls || 'Carousel Slide Controls');
-    slideIndicators = document.createElement('ol');
-    slideIndicators.classList.add('carousel-slide-indicators');
-    slideIndicatorsNav.append(slideIndicators);
 
-    const slideNavButtons = document.createElement('div');
-    slideNavButtons.classList.add('carousel-navigation-buttons');
-    slideNavButtons.innerHTML = `
-      <button type="button" class= "slide-prev" aria-label="${placeholders.previousSlide || 'Previous Slide'}">
+    slideIndicatorsNav.insertAdjacentHTML('afterbegin',`
+      <button type="button" class= "slide-prev slide-nav" aria-label="${placeholders.previousSlide || 'Previous Slide'}">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M17 22.5L8 12L17 1.5" stroke="#FF0000" stroke-width="3"></path>
         </svg>
       </button>
-      <button type="button" class="slide-next" aria-label="${placeholders.nextSlide || 'Next Slide'}">
+    `);
+
+    slideIndicators = document.createElement('ol');
+    slideIndicators.classList.add('carousel-slide-indicators');
+    slideIndicatorsNav.append(slideIndicators);
+
+    slideIndicatorsNav.insertAdjacentHTML('beforeend', `
+      <button type="button" class="slide-next slide-nav" aria-label="${placeholders.nextSlide || 'Next Slide'}">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M7 22.5L16 12L7 1.5" stroke="#FF0000" stroke-width="3"></path>
         </svg>
       </button>
-    `;
-    slideIndicatorsNav.append(slideNavButtons);
+    `);
 
     block.append(slideIndicatorsNav);
   }
@@ -160,22 +161,16 @@ export default async function decorate(block) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx;
-      indicator.innerHTML = `
-        <button type="button">
-          <span>${placeholders.showSlide || 'Show Slide'} ${idx + 1} ${placeholders.of || 'of'} ${rows.length}</span>
-        </button>
-      `;
+      indicator.innerHTML = `<button type="button"><span>${placeholders.showSlide || 'Show Slide'} ${idx + 1} ${placeholders.of || 'of'} ${rows.length}</span></button>`;
       slideIndicators.append(indicator);
     }
+
     row.remove();
   });
 
   container.append(slidesWrapper);
   block.prepend(container);
-
-  if (block.classList.contains('auto-slide')) {
-    startAutoSlide(block);
-  }
+  block.classList.contains('auto-slide') && startAutoSlide(block);
 
   if (!isSingleSlide) {
     bindEvents(block);
