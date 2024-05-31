@@ -57,3 +57,6 @@ indices:
       model-category:
         select: head > meta[name="model-category"]
         value: attribute(el, "content")
+      model-filters-list:
+        select: head > meta[name="model-filters-list"]
+        value: attribute(el, "content")
