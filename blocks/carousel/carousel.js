@@ -105,6 +105,40 @@ function createSlide(row, slideIndex, carouselId) {
   return slide;
 }
 
+function createDoubleSlide(row1, row2, slideIndex, carouselId) {
+  const slide = document.createElement('li');
+  slide.dataset.slideIndex = slideIndex;
+  slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
+  slide.classList.add('carousel-slide');
+
+  row1.querySelectorAll(':scope > div').forEach((column, colIdx) => {
+    column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
+    slide.append(column);
+  });
+
+  row2.querySelectorAll(':scope > div').forEach((column, colIdx) => {
+    column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
+    slide.append(column);
+  });
+
+  const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
+  if (labeledBy) {
+    slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
+  }
+
+  return slide;
+}
+
+function createSlideIndicator(slideIndicators, placeholders, currIdx, lastIdx) {
+  if (slideIndicators) {
+    const indicator = document.createElement('li');
+    indicator.classList.add('carousel-slide-indicator');
+    indicator.dataset.targetSlide = currIdx;
+    indicator.innerHTML = `<button type="button"><span>${placeholders.showSlide || 'Show Slide'} ${currIdx + 1} ${placeholders.of || 'of'} ${lastIdx}</span></button>`;
+    slideIndicators.append(indicator);
+  }
+}
+
 let carouselId = 0;
 export default async function decorate(block) {
   carouselId += 1;
@@ -153,20 +187,35 @@ export default async function decorate(block) {
     block.append(slideIndicatorsNav);
   }
 
-  rows.forEach((row, idx) => {
-    const slide = createSlide(row, idx, carouselId);
-    slidesWrapper.append(slide);
+  if (block.classList.contains('awards')) {
+    let counter = 0;
+    let totalSlides = Math.ceil(parseInt(rows.length / 2));
 
-    if (slideIndicators) {
-      const indicator = document.createElement('li');
-      indicator.classList.add('carousel-slide-indicator');
-      indicator.dataset.targetSlide = idx;
-      indicator.innerHTML = `<button type="button"><span>${placeholders.showSlide || 'Show Slide'} ${idx + 1} ${placeholders.of || 'of'} ${rows.length}</span></button>`;
-      slideIndicators.append(indicator);
+    for (let i = 0; i < rows.length; i += 2) {
+      const slide = createDoubleSlide(rows[i], rows[i + 1], counter, carouselId);
+      slidesWrapper.append(slide);
+      createSlideIndicator(slideIndicators, placeholders, counter, totalSlides);
+      rows[i].remove();
+      rows[i + 1].remove();
+      counter += 1;
     }
 
-    row.remove();
-  });
+    if (rows.length & 1) {
+      const slide = createSlide(rows[-1], counter, carouselId);
+      slidesWrapper.append(slide);
+      createSlideIndicator(slideIndicators, placeholders, counter, totalSlides);
+      rows[-1].remove();
+    }
+  }
+
+  else {
+    rows.forEach((row, idx) => {
+      const slide = createSlide(row, idx, carouselId);
+      slidesWrapper.append(slide);
+      createSlideIndicator(slideIndicators, placeholders, idx, rows.length);
+      row.remove();
+    });
+  }
 
   container.append(slidesWrapper);
   block.prepend(container);
