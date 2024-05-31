@@ -5,6 +5,7 @@ indices:
       - '/en/**'
       - '/au/**'
       - '/bikes/**'
+      - '/filters/**'
     exclude:
       - '/drafts/**'
       - '/en/insights/drafts/**'
