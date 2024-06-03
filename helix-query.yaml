@@ -4,7 +4,8 @@ indices:
     include:
       - '/en/**'
       - '/au/**'
-      - '/Bikes/**'
+      - '/bikes/**'
+      - '/filters/**'
     exclude:
       - '/drafts/**'
       - '/en/insights/drafts/**'
@@ -16,10 +17,7 @@ indices:
     properties:
       lastModified:
         select: none
-        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
-      lastModified2:
-        select: none
-        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")        
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")      
       title:
         select: head > meta[property="og:title"]
         value: attribute(el, "content")
@@ -41,9 +39,6 @@ indices:
       date:
         select: head > meta[name="publication-date"]
         value: parseTimestamp(attribute(el, "content"), "YYYY-MM-DD")
-      robots:
-        select: head > meta[name="robots"]
-        value: attribute(el, "content")
       model-image:
         select: head > meta[name="model-image"]
         value: attribute(el, "content")
@@ -61,4 +56,10 @@ indices:
         value: attribute(el, "content")
       model-category:
         select: head > meta[name="model-category"]
+        value: attribute(el, "content")
+      model-filters-list:
+        select: head > meta[name="model-filters-list"]
+        value: attribute(el, "content")
+      model-new-launch:
+        select: head > meta[name="model-new-launch"]
         value: attribute(el, "content")
