@@ -321,7 +321,7 @@ header nav .nav-tools {
 
 .nav-sections .main-content {
   flex: 1;
-  max-width: 330px;
+  max-width: 325px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -401,18 +401,29 @@ header nav .nav-tools {
 
 .nav-sections .bike-details-button.actions {
   display: flex;
-  gap: 10px;
+  gap: 25px;
   margin-top: 10px;
 }
 
 .nav-sections .explore-btn, .nav-sections .buy-btn {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px 20px;
   cursor: pointer;
+  height: 42px;
+  font-weight: 700;
+  padding: 0 32px;
+  font-size: 16px;
+  line-height: 16px;
+  width: 144px;
 }
-
+.nav-sections .explore-btn {
+  background: white;
+  color: #FF0000;
+  border: 1px solid #FF0000;
+}
+.nav-sections .buy-btn {
+  background: #FF0000;
+  color: white;
+  border: 1px solid #FF0000;
+}
 .nav-sections .explore-btn:hover, .nav-sections .buy-btn:hover {
   background-color: darkred;
 }

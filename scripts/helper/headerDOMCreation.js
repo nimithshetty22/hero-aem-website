@@ -82,7 +82,7 @@ export function createHeaderDOM() {
             bikeName.textContent = item["model-name"];
   
             const bikeDisplacement = document.createElement("p");
-            bikeDisplacement.textContent = `${item["model-displacement"]} cc engine`;
+            bikeDisplacement.textContent = `${item["model-displacement"]}  engine`;
   
             bikeInfo.appendChild(bikeName);
             bikeInfo.appendChild(bikeDisplacement);
@@ -98,13 +98,13 @@ export function createHeaderDOM() {
                   <h3>${bike["model-name"]}</h3>
                   <img src="${bike["model-image"] ? bike["model-image"] : bike["image"]}" alt="${bike["model-name"]}">
                   <div class="bike-details-button actions">
-                    <button class="explore-btn" onclick="exploreBike('${bike["model-link"]}')">Explore</button>
-                    <button class="buy-btn" onclick="buyBike('${bike["model-link"]}')">Buy Now</button>
+                    <button class="explore-btn" onclick="exploreBike('${bike["model-link"]}')">EXPLORE</button>
+                    <button class="buy-btn" onclick="buyBike('${bike["model-link"]}')">BUY NOW</button>
                   </div>
                 </div>
                 <div class="bike-details-col-2">
                   <div class="bike-details-engine-spec">
-                    <p class="spec-value">${bike["model-displacement"]} <span class="spec-unit">cc</span></p>
+                    <p class="spec-value">${bike["model-displacement"]} <span class="spec-unit"></span></p>
                     <p class="spec-desc">Oil cooled 'TORQ-X' Engine</p>
                   </div>
                   <div class="bike-details-engine-power">
