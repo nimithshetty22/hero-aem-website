@@ -60,6 +60,6 @@ indices:
       model-filters-list:
         select: head > meta[name="model-filters-list"]
         value: attribute(el, "content")
-       model-new-launch:
+      model-new-launch:
         select: head > meta[name="model-new-launch"]
         value: attribute(el, "content")
