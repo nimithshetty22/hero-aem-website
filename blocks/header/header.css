@@ -386,13 +386,17 @@ header nav .nav-tools {
 }
 
 .nav-sections .bike-details-col-1 h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  line-height: 40.3px;
+  font-family: var(--font-tstar-bold);
+  font-style: italic;
+  color: #949494;
+  margin: 0;
 }
 
 .nav-sections .bike-details-col-1 img {
-  width: 300px;
-  height: auto;
+  width: 303px;
+  height: 192px;
 }
 
 .nav-sections .bike-details-button.actions {
