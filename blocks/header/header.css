@@ -148,7 +148,7 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 98px;
   height: auto;
 }
 
@@ -162,6 +162,8 @@ header nav .nav-sections {
   font-family: var(--font-transducer);
   line-height: 16px;
   font-size: 16px;
+  font-weight: 500;
+  padding-left: 14.5rem;
 }
 
 header nav[aria-expanded="true"] .nav-sections {
@@ -234,7 +236,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -252,7 +254,6 @@ header nav .nav-sections ul > li > ul > li {
     position: absolute;
     left: -1em;
     width: 100vw;
-    margin-top: 12px;
     padding: 1em;
     background-color: white;
     white-space: initial;
@@ -297,6 +298,7 @@ header nav .nav-tools {
   font-weight: 700;
   font-size: 20px;
   line-height: 20px;
+  padding-left: 5rem;
 }
 
 .nav-sections .sidebar h2 {
