@@ -105,18 +105,23 @@ function createSlide(row, slideIndex, carouselId) {
   return slide;
 }
 
-function createDoubleSlide(row1, row2, slideIndex, carouselId) {
+function combine2or3Slides(row1, row2, row3, slideIndex, carouselId) {
   const slide = document.createElement('li');
   slide.dataset.slideIndex = slideIndex;
   slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
   slide.classList.add('carousel-slide');
 
-  row1.querySelectorAll(':scope > div').forEach((column, colIdx) => {
+  row1?.querySelectorAll(':scope > div').forEach((column, colIdx) => {
     column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
     slide.append(column);
   });
 
-  row2.querySelectorAll(':scope > div').forEach((column, colIdx) => {
+  row2?.querySelectorAll(':scope > div')?.forEach((column, colIdx) => {
+    column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
+    slide.append(column);
+  });
+
+  row3?.querySelectorAll(':scope > div')?.forEach((column, colIdx) => {
     column.classList.add(`carousel-slide-${colIdx === 0 ? 'image' : 'content'}`);
     slide.append(column);
   });
@@ -141,6 +146,7 @@ function createSlideIndicator(slideIndicators, placeholders, currIdx, lastIdx) {
 
 let carouselId = 0;
 export default async function decorate(block) {
+  const windowWidth = window.innerWidth;
   carouselId += 1;
   block.setAttribute('id', `carousel-${carouselId}`);
   const rows = block.querySelectorAll(':scope > div');
@@ -187,25 +193,32 @@ export default async function decorate(block) {
     block.append(slideIndicatorsNav);
   }
 
-  if (block.classList.contains('awards')) {
+  const awardSlideCount = windowWidth >= 1250 ? 3 : 2;
+
+  if (block.classList.contains('awards') && windowWidth >= 768) {
     let counter = 0;
     let totalSlides = Math.ceil(parseInt(rows.length / 2));
+    
 
-    for (let i = 0; i < rows.length; i += 2) {
-      const slide = createDoubleSlide(rows[i], rows[i + 1], counter, carouselId);
+    for (let i = 0; i < rows.length; i += awardSlideCount) {
+      let slide;
+      awardSlideCount === 2
+        ? (slide = combine2or3Slides(rows[i], rows[i + 1], undefined, counter, carouselId))
+        : (slide = combine2or3Slides(rows[i], rows[i + 1], rows[i + 2], counter, carouselId));
       slidesWrapper.append(slide);
       createSlideIndicator(slideIndicators, placeholders, counter, totalSlides);
       rows[i].remove();
-      rows[i + 1].remove();
+      rows[i + 1]?.remove();
+      awardSlideCount === 3 && rows[i + 2]?.remove();
       counter += 1;
     }
 
-    if (rows.length & 1) {
-      const slide = createSlide(rows[-1], counter, carouselId);
-      slidesWrapper.append(slide);
-      createSlideIndicator(slideIndicators, placeholders, counter, totalSlides);
-      rows[-1].remove();
-    }
+    // if (rows.length & 1) {
+    //   const slide = createSlide(rows[-1], counter, carouselId);
+    //   slidesWrapper.append(slide);
+    //   createSlideIndicator(slideIndicators, placeholders, counter, totalSlides);
+    //   rows[-1].remove();
+    // }
   }
 
   else {

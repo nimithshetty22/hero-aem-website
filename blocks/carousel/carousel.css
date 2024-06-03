@@ -1,3 +1,35 @@
+.section.awards {
+  padding: 96px 120px;
+
+  @media (width >= 768px) and (width <= 1280px) {
+    padding: 96px 60px;
+  }
+
+  @media (width <= 767px) {
+    padding: 40px 16px;
+  }
+
+  div:first-child {
+    p {
+      color: var(--text-color-red);
+      font-family: var(--font-tstar-heavy);
+      font-size: var(--font-size24);
+      line-height: var(--line-height-per-140);
+      font-weight: var(--font-weight-900);
+      margin-bottom: 24px;
+    }
+
+    h3 {
+      color: var(--text-color-title-black);
+      font-family: var(--font-transducer);
+      font-size: var(--font-size40);
+      line-height: var(--line-height-per-140);
+      font-weight: var(--font-weight-400);
+      margin-bottom: 40px;
+    }
+  }
+}
+
 .carousel,
 .carousel .carousel-slides-container {
     position: relative;
@@ -78,10 +110,26 @@
 }
 
 .carousel.awards .carousel-slide {
+  min-height: unset;
   display: grid;
+  justify-content: space-evenly;
   grid-auto-flow: column;
-  grid-template-rows: 1fr 1fr;
-  /* grid-template-columns: 1fr 1fr; */
+  grid-template-rows: 0fr 0fr;
+  row-gap: 55px;
+
+  div {
+    max-width: 386px;
+
+  @media (width < 768px) {
+      max-width: 100%;
+    }
+  }
+
+  @media (width < 768px) {
+    row-gap: 27px;
+    height: 214px;
+    width: 214px;
+  }
 }
 
 .carousel .carousel-slide .carousel-slide-image picture {
@@ -109,6 +157,7 @@
       height: 214px;
       width: 214px;
     }
+
     img {
       object-fit: contain;
     }
@@ -117,15 +166,14 @@
 
 .carousel .carousel-slide .carousel-slide-content {
   z-index: 1;
-  padding: 1rem;
-  margin: 1.5rem 3rem;
   color: var(--text-color-white);
   position: relative;
   display: flex;
   flex-direction: column;
   /* width: var(--slide-content-width, auto); */
 
-  .button-container a.button {
+  .button-container
+  a.button {
     background-color: transparent;
     border-radius: unset;
     border: 1px solid var(--text-color-white);
@@ -144,23 +192,53 @@
   h1 {
     font-family: var(--font-transducer);
     font-size: var(--font-size80);
-    font-weight: var(--font-weight-500);
     line-height: var(--line-height-per-100);
+    font-weight: var(--font-weight-500);
     letter-spacing: 0;
     text-align: center;
+
+    @media (width < 768px) {
+      font-size: var(--font-size60);
+    }
+
+    @media (width < 600px) {
+      font-size: var(--font-size40);
+      line-height: var(--line-height-per-120);
+    }
   }
 }
 
 .carousel.awards .carousel-slide .carousel-slide-content {
   align-items: center;
+  row-gap: 17px;
+
+  @media (width < 768px) {
+    row-gap: 6px;
+  }
 
   p:first-child {
     color: var(--text-color-red);
+    font-family: var(--font-tstar-bold);
+    font-size: var(--font-size20);
+    font-weight: var(--font-weight-700);
+    line-height: var(--line-height-per-140);
   }
 
   p:last-child {
     color: var(--text-color-title-black);
+    font-family: var(--font-tstar-bold);
+    font-size: var(--font-size24);
+    font-weight: var(--font-weight-700);
+    line-height: var(--line-height-per-140);
     text-align: center;
+    padding: 0 8px;
+
+    @media (width < 768px) {
+      font-size: var(--font-size24);
+      font-weight: var(--font-weight-500);
+      font-family: var(--font-transducer);
+      padding: 0 14px;
+    }
   }
 }
 
@@ -245,6 +323,7 @@
   border: unset;
   display: flex;
 }
+
 /* .carousel .carousel-navigation-buttons button {
   margin: 0;
   padding: 0;
