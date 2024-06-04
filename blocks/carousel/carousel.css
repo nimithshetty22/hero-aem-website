@@ -17,15 +17,25 @@
       line-height: var(--line-height-per-140);
       font-weight: var(--font-weight-900);
       margin-bottom: 24px;
+
+      @media (width < 768px) {
+        font-size: var(--font-size20);
+        margin-bottom: 8px;
+      }
     }
 
     h3 {
       color: var(--text-color-title-black);
       font-family: var(--font-transducer);
       font-size: var(--font-size40);
-      line-height: var(--line-height-per-140);
+      line-height: var(--line-height-per-100);
       font-weight: var(--font-weight-400);
       margin-bottom: 40px;
+
+      @media (width < 768px) {
+        font-size: var(--font-size32);
+        margin-bottom: 55px;
+      }
     }
   }
 }
@@ -120,7 +130,7 @@
   div {
     max-width: 386px;
 
-  @media (width < 768px) {
+    @media (width < 768px) {
       max-width: 100%;
     }
   }
