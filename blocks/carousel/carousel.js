@@ -212,13 +212,6 @@ export default async function decorate(block) {
       awardSlideCount === 3 && rows[i + 2]?.remove();
       counter += 1;
     }
-
-    // if (rows.length & 1) {
-    //   const slide = createSlide(rows[-1], counter, carouselId);
-    //   slidesWrapper.append(slide);
-    //   createSlideIndicator(slideIndicators, placeholders, counter, totalSlides);
-    //   rows[-1].remove();
-    // }
   }
 
   else {

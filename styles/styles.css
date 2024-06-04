@@ -113,6 +113,7 @@
   --text-color-type-gray-1: #9f9f9f;
   --text-color-type-gray-2: #d3d3d3;
   --text-color-type-gray-3: gray;
+  --text-color-type-gray-4: #595959;
   --bg-color-secondarygrey: #303030;
   --bg-color-black: #000;
   --bg-color-danger: #ee2326;
@@ -150,6 +151,8 @@
   --border-color-gray-3: #ccc;
   --border-color-gray-4: #d9d9d9;
   --border-color-gray-5: #e5e5e5;
+  --border-color-gray-6: #696969;
+  --border-color-gray-7: #969696;
 
   /* nav height */
   --nav-height: 64px;
