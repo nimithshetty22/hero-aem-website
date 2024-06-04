@@ -137,8 +137,8 @@
 
   @media (width < 768px) {
     row-gap: 27px;
-    height: 214px;
-    width: 214px;
+    /* height: 214px; */
+    /* width: 214px; */
   }
 }
 
